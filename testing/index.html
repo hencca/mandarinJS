@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mandarin.js testing</title>
+
+    <style type="text/css">
+        #mutha {width: 100px; height: 200px; background-color: red}
+    </style>
+    <script src="../src/mandarin.js"></script>
+    <script>
+
+        window.onload = function () {
+            Mandarin2("mutha").addAnim(1,{x:200}).addAnim(1,{y:200}).startAnim();
+
+        }
+
+
+
+    </script>
+</head>
+<body>
+
+<div id="mutha"></div>
+
+</body>
+</html>
