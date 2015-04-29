@@ -1,6 +1,31 @@
 var Mandarin2 = function (name) {
 
 
+
+
+        Mandarin2.objectsContainer = Mandarin2.objectsContainer ? Mandarin2.objectsContainer : [];
+
+        Mandarin2.pauseAll = function () {
+            console.log("pause");
+            var c = Mandarin2.objectsContainer;
+            for(var i = 0; i <  c.length; i++) {
+                c[i].style.webkitAnimationPlayState="paused";
+                c[i].style.animationPlayState="paused";
+            }
+
+        };
+
+
+        Mandarin2.resumeAll = function () {
+            console.log("resume");
+            var c = Mandarin2.objectsContainer;
+            for(var i = 0; i <  c.length; i++) {
+                c[i].style.webkitAnimationPlayState="running";
+                c[i].style.animationPlayState="running";
+            }
+
+        };
+
         var animObject = {};
 
 
@@ -9,6 +34,14 @@ var Mandarin2 = function (name) {
         var n_name = name;
 
         var animElement = document.getElementById(name);
+
+
+        // add the DOM object to array, for future use
+        Mandarin2.objectsContainer.push(animElement);
+
+        console.log(Mandarin2.objectsContainer);
+
+
         animElement.style.position = "absolute";
 
         var animation_text = "animation";
@@ -40,6 +73,25 @@ var Mandarin2 = function (name) {
         var alpha = 1;
         var ease = "ease-out"
         var delayNum = 0;
+
+
+    // just set it someweher without animating
+    animObject.set = function (obj) {
+
+        this.addAnim(0,obj);
+
+        return animObject;
+
+    };
+
+
+    animObject.wait = function(time) {
+        this.addAnim(time,{});
+
+        return animObject;
+
+    }
+
 
 
         animObject.addAnim = function (time, obj) {
@@ -78,10 +130,12 @@ var Mandarin2 = function (name) {
                 percent100 += "left:" + x + "px; ";
 
 
-                // transform
+                // transform 0%
 
 
                 var transform = "translate(" + (-animElement.clientWidth * .5) + "px," + (-animElement.clientHeight * .5) + "px)";
+               // var transform = "";
+               // var transform = "transform-origin: 50% 50%; ";
                 //var transform = "translate(500px,0 ) ";
                 //var transform = "";
                 //rotation 0%
@@ -95,7 +149,10 @@ var Mandarin2 = function (name) {
                 scale = (obj.scale !== undefined) ? obj.scale : scale;
                 rotation = (obj.rotation !== undefined) ? obj.rotation : rotation;
 
+
+                // 100%
                 transform = "translate(" + (-animElement.clientWidth * .5) + "px," + (-animElement.clientHeight * .5) + "px)";
+               // transform = "";
                 transform += "rotate(" + rotation + "deg) ";
                 //scale
                 transform += "scale(" + scale + "," + scale + ") ";
@@ -131,6 +188,13 @@ var Mandarin2 = function (name) {
         }
 
 
+
+
+
+
+
+
+
         animObject.startOver = function () {
 
             animElement.className = "";
@@ -157,8 +221,16 @@ var Mandarin2 = function (name) {
 
             }
 
+            var style = document.createElement("style");
 
-            document.styleSheets[0].insertRule("." + animObject.animationName + "_class {" + browserPrefix + "animation:" + str1 + "; " + browserPrefix + "animation-delay:" + str2 + "; " + browserPrefix + "animation-fill-mode:forwards}", 0);
+            style.appendChild(document.createTextNode(""));
+
+            // Add the <style> element to the page
+            document.head.appendChild(style);
+
+
+
+            style.sheet.insertRule("." + animObject.animationName + "_class {" + browserPrefix + "animation:" + str1 + "; " + browserPrefix + "animation-delay:" + str2 + "; " + browserPrefix + "animation-fill-mode:forwards}", 0);
             animElement.className += " " + animObject.animationName + "_class";
 
             //console.log(str1);

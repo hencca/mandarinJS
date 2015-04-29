@@ -6,22 +6,52 @@
 
     <style type="text/css">
         #mutha {width: 100px; height: 200px; background-color: red}
+        #mutha1 {width: 100px; height: 200px; background-color: green}
+        #mutha2 {width: 200px; height: 200px; background-color: blue}
     </style>
     <script src="../src/mandarin.js"></script>
     <script>
 
-        window.onload = function () {
-            Mandarin2("mutha").addAnim(1,{x:200}).addAnim(1,{y:200}).startAnim();
 
+
+
+
+        window.onload = function () {
+           //Mandarin2("mutha").addAnim(1,{x:1200, rotation:20}).addAnim(1,{y:200,rotation:20}).startAnim();
+           Mandarin2("mutha").set({x:200,y:200}).wait(1).addAnim(1,{rotation:20,x:0}).wait(1).addAnim(1,{rotation:180,x:900}).startAnim();
+           Mandarin2("mutha1").set({x:500,y:600}).wait(1.6).addAnim(1,{rotation:20,x:0}).wait(1).addAnim(1,{rotation:180,x:900}).startAnim();
+           Mandarin2("mutha2").set({x:500,y:300}).wait(1.1).addAnim(1,{rotation:120,x:0}).wait(1).addAnim(1,{rotation:280,x:900}).startAnim();
+
+        };
+
+        var b = true;
+        function click () {
+            if(b) {
+                Mandarin2.pauseAll();
+            } else {
+                Mandarin2.resumeAll();
+            }
+            b = !b;
         }
 
+        window.addEventListener("click", click);
 
+
+        window.onblur = function () {
+            Mandarin2.pauseAll();
+        }
+
+        window.onfocus = function () {
+            Mandarin2.resumeAll();
+        }
 
     </script>
 </head>
 <body>
 
 <div id="mutha"></div>
+<div id="mutha1"></div>
+<div id="mutha2"></div>
 
 </body>
 </html>
