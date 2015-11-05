@@ -9,8 +9,11 @@ Example:
 --
 
 Mandarin("myDiv")
+
   .set({x:500,y:600})
+
   .wait(1.6)
+
   .addAnim(1,{rotation:20,x:0})
   .wait(1).addAnim(1,{rotation:180,x:900})
   .startAnim();
