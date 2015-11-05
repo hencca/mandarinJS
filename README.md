@@ -15,29 +15,27 @@ Mandarin("myDiv")
   .wait(1.6)
 
   .addAnim(1,{rotation:20,x:0})
-  .wait(1).addAnim(1,{rotation:180,x:900})
-  .startAnim();
 
-.set()
---
+   .wait(1).addAnim(1,{rotation:180,x:900})
+
+   .startAnim();
+
+##.set()
 method, just set the values without animating
 
-.wait(seconds)
---
+##.wait(seconds)
+
 will wait that number of seconds
 
-.pause(seconds)
---
+##.pause(seconds)
 pause it for amount of seconds
 
 
 .resume()
 
-Mandarin.pauseAll();
---
+##Mandarin.pauseAll();
 pauses all instances
 
 
-Mandarin.resumeAll();
---
+##Mandarin.resumeAll();
 resumes all instances
