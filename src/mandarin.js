@@ -1,6 +1,7 @@
 var Mandarin = function (name) {
 
-
+    var styleSheet = document.createElement('style')
+    document.head.appendChild(styleSheet)
 
 
         Mandarin.objectsContainer = Mandarin.objectsContainer ? Mandarin.objectsContainer : [];
@@ -206,8 +207,11 @@ var Mandarin = function (name) {
             //alert(animationName);
 
 
-            document.styleSheets[0].insertRule(keyframes, 0);
 
+
+           styleSheet.sheet.insertRule(keyframes, 0);
+
+            //document.styleSheets[0].insertRule(keyframes, 0);
 
             animNum++;
 

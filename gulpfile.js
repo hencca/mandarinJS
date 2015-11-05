@@ -4,8 +4,7 @@ var concat = require("gulp-concat");
 
 
 gulp.task('uglify', function() {
-    // Minify and copy all JavaScript (except vendor scripts)
-    // with sourcemaps all the way down
+
     return gulp.src("src/*.*")
         .pipe(uglify())
         .pipe(concat("mandarin.min.js"))
