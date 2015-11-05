@@ -253,16 +253,11 @@ var Mandarin = function (name) {
 
             }
 
-            var style = document.createElement("style");
-
-            style.appendChild(document.createTextNode(""));
-
-            // Add the <style> element to the page
-            document.head.appendChild(style);
 
 
 
-            style.sheet.insertRule("." + animObject.animationName + "_class {" + browserPrefix + "animation:" + str1 + "; " + browserPrefix + "animation-delay:" + str2 + "; " + browserPrefix + "animation-fill-mode:forwards}", 0);
+
+            styleSheet.sheet.insertRule("." + animObject.animationName + "_class {" + browserPrefix + "animation:" + str1 + "; " + browserPrefix + "animation-delay:" + str2 + "; " + browserPrefix + "animation-fill-mode:forwards}", 0);
             animElement.className += " " + animObject.animationName + "_class";
 
 
