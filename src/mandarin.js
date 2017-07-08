@@ -1,15 +1,16 @@
 var Mandarin = function (name) {
 
-    var styleSheet = document.createElement('style')
-    document.head.appendChild(styleSheet)
+    var styleSheet = document.createElement("style");
+    document.head.appendChild(styleSheet);
 
 
-        Mandarin.objectsContainer = Mandarin.objectsContainer ? Mandarin.objectsContainer : [];
+        Mandarin.objectsContainer = Mandarin.objectsContainer || [];
 
         Mandarin.pauseAll = function () {
 
             var c = Mandarin.objectsContainer;
-            for(var i = 0; i <  c.length; i++) {
+            var i;
+            for(i = 0; i <  c.length; i++) {
                 c[i].pause();
             }
 
@@ -90,7 +91,7 @@ var Mandarin = function (name) {
         var delayNum = 0;
 
 
-    // just set it someweher without animating
+    // Just set it somewehere without animating
     animObject.set = function (obj) {
 
         this.addAnim(0,obj);
