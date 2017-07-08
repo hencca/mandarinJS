@@ -4,6 +4,8 @@
   "description": "A super lightweight animation library",
   "main": "index.js",
   "scripts": {
+    "build": "webpack",
+    "watch": "webpack -w",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -17,8 +19,5 @@
   },
   "homepage": "https://github.com/hencca/mandarinJS",
   "devDependencies": {
-    "gulp": "~3.8.11",
-    "gulp-uglify": "~1.2.0",
-    "gulp-concat": "~2.5.2"
   }
 }

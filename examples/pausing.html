@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mandarin.js examples</title>
+    <script src="../dist/mandarin.min.js"></script>
+</head>
+<body>
+<p>Click to pause all animations</p>
+
+<div id="one">One</div>
+<div id="two">Two</div>
+<div id="three">Three</div>
+
+<script>
+    Mandarin("one").set({x: 200, y: 200}).wait(1).addAnim(1, {rotation: 20, x: 0}).wait(1).addAnim(1, {rotation: 180, x: 900 }).startAnim();
+     Mandarin("two").set({x: 200, y: 100}).wait(1.6).addAnim(1, {rotation: 20, x: 0}).wait(1).addAnim(1, { rotation: 180,x: 900}).startAnim();
+    Mandarin("three").set({x: 500, y: 300}).wait(1.1).addAnim(1, {rotation: 120,x: 0}).wait(1).addAnim(1, {rotation: 280, x: 900}).startAnim();
+
+    document.addEventListener("click", function () {
+        Mandarin.pauseAll();
+
+    })
+
+</script>
+
+</body>
+</html>
